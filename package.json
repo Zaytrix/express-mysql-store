@@ -1,0 +1,28 @@
+{
+  "name": "express-mysql-store",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Zaytrix/express-mysql-store#readme",
+  "bugs": {
+    "url": "https://github.com/Zaytrix/express-mysql-store/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zaytrix/express-mysql-store.git"
+  },
+  "license": "ISC",
+  "author": "Zaytrix",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "lodash": "^4.18.1",
+    "morgan": "^1.12.1",
+    "mysql2": "^3.24.5",
+    "nodemon": "^3.1.14"
+  }
+}
