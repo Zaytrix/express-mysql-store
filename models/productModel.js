@@ -25,10 +25,23 @@ const Product = {
   },
   get: (id, callback) => {
     const query = `SELECT products.*, categories.name AS category_name 
-                 FROM products 
-                 LEFT JOIN categories ON products.category_id = categories.id
+                 FROM products LEFT JOIN categories 
+                 ON products.category_id = categories.id
                  WHERE products.id = ?`;
     db.query(query, [id], (err, results) => {
+      if (err) {
+        return callback(err, null);
+      }
+      callback(null, results);
+    });
+  },
+
+  update: (id, title, price, category_id, callback) => {
+    const query = `UPDATE products 
+SET title = ?, price = ?, category_id = ? 
+WHERE id = ?`;
+
+    db.query(query, [title, price, category_id, id], (err, results) => {
       if (err) {
         return callback(err, null);
       }

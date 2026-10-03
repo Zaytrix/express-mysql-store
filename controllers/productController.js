@@ -27,6 +27,21 @@ const productController = {
       return res.json(results);
     });
   },
-};
 
+  updateProduct: (req, res) => {
+    const { id } = req.params;
+    const { title, price, category_id } = req.body;
+
+    Product.update(id, title, price, category_id, (err, results) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+
+      if (results.affectedRows === 0) {
+        return res.status(404).json({ message: "Product not found" });
+      }
+      return res.json({ message: "Product updated successfully" });
+    });
+  },
+};
 module.exports = productController;
